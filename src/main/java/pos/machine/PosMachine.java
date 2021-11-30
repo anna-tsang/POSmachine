@@ -9,7 +9,14 @@ public class PosMachine {
     }
 
     public int getQuantity(List<String> barcodesList, String barcode){
-        return null;
+        List<ItemInfo> allItem = ItemDataLoader.loadAllItemInfos();
+        int quantity = 0;
+        for(String barcodeL: barcodesList){
+            if(barcodeL.equals(barcode)){
+                quantity++;
+            }
+        }
+        return quantity;
     }
 
     public String formatRow(String barcode, List<String>originalBarcodeList) {
