@@ -31,11 +31,22 @@ public class PosMachine {
     }
 
     public String formatTable(List<String> barcodesList) {
-        return null;
+        String table = "";
+        List<String> distinctBarcodeList = getDistinctBarcodeList(barcodesList);
+        for(String barcode: distinctBarcodeList){
+            table += formatRow(barcode, barcodesList) + "\n";
+        }
+        return table;
     }
 
     public List<String>getDistinctBarcodeList(List<String> barcodesList) {
-        return null;
+        List<String> barcodeDistinct = new ArrayList<>();
+        for(String barcodeL: barcodesList){
+            if(!(barcodeDistinct.contains(barcodeL))){
+                barcodeDistinct.add(barcodeL);
+            }
+        }
+        return barcodeDistinct;
     }
 
     public int calculateOverallTotal(List<String> barcodesList) {
