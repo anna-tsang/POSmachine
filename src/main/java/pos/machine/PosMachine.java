@@ -70,6 +70,7 @@ public class PosMachine {
     }
 
     public String calculateSubtotal(int quantity, int unitPrice) {
-        return null;
+        int subtotal = quantity*unitPrice;
+        return String.valueOf(subtotal);
     }
 }
