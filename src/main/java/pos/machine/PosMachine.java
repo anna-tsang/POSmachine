@@ -57,7 +57,16 @@ public class PosMachine {
     }
 
     public int calculateOverallTotal(List<String> barcodesList) {
-        return null;
+        List<ItemInfo> allItemList = ItemDataLoader.loadAllItemInfos();
+        int sum = 0;
+        for(String barcode: barcodesList){
+            for(ItemInfo allItem: allItemList){
+                if(barcode.equals(allItem.getBarcode())){
+                    sum += allItem.getPrice();
+                }
+            }
+        }
+        return sum;
     }
 
     public String calculateSubtotal(int quantity, int unitPrice) {
