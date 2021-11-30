@@ -5,7 +5,14 @@ import java.util.List;
 
 public class PosMachine {
     public String printReceipt(List<String> barcodesList) {
-        return null;
+        List<ItemInfo> allItem = ItemDataLoader.loadAllItemInfos();
+        String table = formatTable(barcodesList);
+        String tmp = "***<store earning no money>Receipt***\n";
+        tmp += table;
+        tmp += "----------------------\n";
+        tmp+= "Total: " + calculateOverallTotal(barcodesList) +" (yuan)\n";
+        tmp += "**********************";
+        return tmp;
     }
 
     public int getQuantity(List<String> barcodesList, String barcode){
